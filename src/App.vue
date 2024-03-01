@@ -1,22 +1,36 @@
 <script setup>
-import { ref } from 'vue'
+  import { ref } from 'vue';
 
-const contador = ref(0)
+  const contador = ref(0);
+
+  function incrementar() {
+    contador.value++;
+  }
+
+  function decrementar() {
+    if (contador.value > 0) {
+      contador.value--;
+    }
+  }
+
+  function reiniciar() {
+    contador.value = 0;
+  }
+
 </script>
 
 <template>
-  <div>
-    <button @click="contador++">+</button>
-    <button @click="contador--">-</button>
-    <p>Valor do contador: {{ contador }}</p>
+  <div class="redondo">
+    <h1>Contador</h1>
+    <p> {{ contador }} </p>
+    <button class="redondo" @click="incrementar">Incrementar</button>
+    <button class="redondo" @click="decrementar">Decrementar</button>
+    <button class="redondo" @click="reiniciar">Reiniciar</button>
   </div>
 </template>
+<style>
+.redondo{
+border-radius:200px;
 
-<style scoped>
-button {
-background-color: rgb(0, 225, 255);
-color: rgb(255, 0, 0);
-padding: 20px;
 }
 </style>
-
